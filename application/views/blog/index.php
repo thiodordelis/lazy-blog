@@ -42,8 +42,8 @@
         {posts}
         <div class="blog-post">
           <h2 class="blog-post-title"> <?php if($show_pager==0) echo '<a href="/index.php/blog/{entry_id}">';?> {entry_name} </a></h2>
-          <p class="blog-post-meta"> {entry_date} <!--Author: <a href="#"> {entry_author} </a>Tags: {entry_tags}--></p>
-           <div class="blog-body"><?php if($show_pager==0){echo '{entry_body_summary}';} else { echo '{entry_body}';} ?>
+          <p class="blog-post-meta"> {entry_date} <!--Author: <a href="#"> {entry_author} </a>-->Tags: {entry_tags}</p>
+           <div class="blog-body"><?php if($in_post==0){echo '{entry_body_summary}';} else { echo '{entry_body}';} ?>
            </div>
         </div>
         {/posts}

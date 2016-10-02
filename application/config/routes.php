@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['(:any)'] = 'index.php/page/1';
 $route['blog/(:any)'] = 'blog/view/$1';
 $route['page/(:num)'] = 'blog/load_page/$1';
+$route['tags/(:any)'] = 'blog/load_tags/$1';
 $route['assets/(:any)'] = 'assets/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

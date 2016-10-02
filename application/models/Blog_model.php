@@ -7,7 +7,7 @@ class Blog_model extends CI_Model
         $this->load->database();
     }
  
-    function get_initial_posts($id,$offset = 0, $pagesize = 5)
+    function get_initial_posts($id,$offset = 0, $pagesize = 5, $tag = '')
     {
         // Turn off cache
         $this->db->cache_off();
@@ -19,6 +19,10 @@ class Blog_model extends CI_Model
           $this->db->where('entry_id', $id);
         }
 
+        if(!empty($tag)) {
+          $this->db->like('entry_tags', $tag);
+        }
+
         // Order by
         $this->db->order_by('entry_id', 'DESC');
 
@@ -28,7 +32,7 @@ class Blog_model extends CI_Model
         foreach ($query->result() as $row) {    
           $tags=explode(',',$row->entry_tags);
           foreach($tags as $tag) {
-            $tags_html.='<a href="/tags/'.$tag.'" >'.$tag.'</a> ';
+            $tags_html.='<a href="/index.php/tags/'.$tag.'" >'.$tag.'</a> ';
           }
 
           $data[] = array(
